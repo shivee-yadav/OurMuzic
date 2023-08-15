@@ -6,6 +6,8 @@ const connection = require("./db");
 const userRoutes = require("./routes/user");
 const authRoutes = require("./routes/auth");
 const songRoutes = require("./routes/songs");
+const playListRoutes = require("./routes/playlists");
+const searchRoutes = require("./routes/search");
 
 const app = express();
 
@@ -16,6 +18,9 @@ app.use(express.json());
 app.use("/api/users",userRoutes);
 app.use("/api/login",authRoutes);
 app.use("/api/songs",songRoutes);
+app.use("/api/playlists/", playListRoutes);
+app.use("/api/", searchRoutes);
+
 
 const port = process.env.PORT 
 app.listen(port, console.log(`Listening on port ${port}`));
